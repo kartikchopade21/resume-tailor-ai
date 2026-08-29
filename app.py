@@ -10,13 +10,35 @@ import streamlit as st
 # Hosted deployments have no .env — Streamlit Community Cloud supplies keys via
 # the app's Secrets panel instead. Copy them into the environment before tailor
 # is imported, since config.py reads os.environ once at import time.
-# setdefault, so a real .env still wins when running locally.
-try:
-    for _key, _value in st.secrets.items():
-        if isinstance(_value, str):
-            os.environ.setdefault(_key, _value)
-except Exception:      # no secrets configured at all — normal for local runs
-    pass
+SECRET_NAMES: list[str] = []      # names only, for the sidebar diagnostic
+
+
+def _load_secrets_into_env() -> None:
+    """Flatten Streamlit secrets into os.environ.
+
+    Values nested under a TOML section ([gemini], [general], …) are walked too:
+    people reasonably write section headers, and silently ignoring those looks
+    exactly like "my key is set but the app says it isn't". An existing but
+    empty env var is treated as unset, so a blank .env line cannot mask a secret.
+    """
+    try:
+        top = dict(st.secrets)
+    except Exception:  # no secrets configured at all — normal for local runs
+        return
+
+    def walk(mapping) -> None:
+        for name, value in mapping.items():
+            if isinstance(value, str):
+                SECRET_NAMES.append(name)
+                if not os.environ.get(name):
+                    os.environ[name] = value
+            elif hasattr(value, "items"):
+                walk(value)
+
+    walk(top)
+
+
+_load_secrets_into_env()
 
 from tailor import llm, providers  # noqa: E402
 from tailor import (  # noqa: E402
@@ -245,6 +267,28 @@ with st.sidebar:
             st.markdown(
                 f"[Get a {'free ' if provider.free else ''}key →]({provider.console_url})"
             )
+            with st.expander("Set a key but still seeing this?"):
+                st.markdown(f"This provider reads **`{provider.env_var}`**.")
+                if SECRET_NAMES:
+                    found = ", ".join(f"`{n}`" for n in sorted(SECRET_NAMES))
+                    st.markdown(f"Secrets loaded: {found}")
+                    if provider.env_var not in SECRET_NAMES:
+                        st.error(
+                            f"`{provider.env_var}` is not among them — the name must "
+                            f"match exactly."
+                        )
+                    else:
+                        st.warning(
+                            f"`{provider.env_var}` is present but empty. Check the "
+                            f"value was actually pasted."
+                        )
+                else:
+                    st.error(
+                        "No secrets were loaded at all. On Streamlit Community Cloud "
+                        "add them under **⋮ → Settings → Secrets** as TOML, then wait "
+                        "for the app to reboot."
+                    )
+                st.caption("Names only — key values are never displayed or logged.")
 
     st.divider()
     st.header("Settings")
