@@ -1,0 +1,32 @@
+Machine Learning Engineer — Applied AI
+Northgate Analytics · Bengaluru (Hybrid)
+
+About the role
+You will build and ship LLM-powered features that sit in front of real customers.
+You will own retrieval pipelines end to end, from ingestion through evaluation,
+and work with product engineers to get models into production.
+
+Responsibilities
+- Design and deploy RAG pipelines over internal knowledge bases
+- Fine-tune and evaluate large language models for domain-specific tasks
+- Build and maintain prompt engineering workflows and eval harnesses
+- Deploy inference services on AWS with Docker and CI/CD
+- Monitor model quality and latency in production
+- Partner with backend engineers to expose models through REST APIs
+
+Required qualifications
+- 2+ years building machine learning systems in Python
+- Hands-on experience with LLMs and prompt engineering
+- Experience with PyTorch or TensorFlow
+- Experience building RAG pipelines with a vector database (Pinecone, FAISS, or pgvector)
+- Strong SQL and data pipeline skills
+- Experience deploying services with Docker on AWS
+
+Preferred qualifications
+- Experience with LangChain or LlamaIndex
+- Familiarity with MLOps tooling and model monitoring
+- Experience with FastAPI
+- Exposure to Kubernetes
+- Contributions to open-source ML projects
+
+Bachelor's degree in Computer Science, Engineering, or a related field.

@@ -1,0 +1,46 @@
+Arjun Mehta
+Machine Learning Engineer
+Bengaluru, India | +91 98765 43210 | arjun.mehta@example.com | linkedin.com/in/arjunmehta | github.com/arjunmehta
+
+Professional Summary
+Machine Learning Engineer with 3 years of experience shipping Python services and LLM-powered features, from RAG pipelines and prompt engineering through Dockerised deployment on AWS.
+
+Technical Skills
+Languages: Python, JavaScript, SQL
+AI/ML: LLMs, prompt engineering, RAG pipelines, LangChain, scikit-learn, model evaluation, fine-tuning
+Frameworks: FastAPI, Django, Flask, React
+Data: PostgreSQL, MongoDB, pandas, NumPy, FAISS, vector database, data pipeline
+Cloud & DevOps: Docker, AWS, Jenkins, CI/CD, MLOps, Git, Linux
+
+Professional Experience
+Software Engineer | Cobalt Systems | Bengaluru, India  July 2023 - Present
+- Built and maintained Django REST services handling 40k daily requests for the logistics dashboard
+- Designed PostgreSQL schemas and optimised slow SQL queries, cutting p95 latency by 35%
+- Containerised three internal services with Docker and deployed them on AWS with Jenkins CI/CD pipelines
+- Mentored two interns through their first production deployments
+
+Junior Developer | Vireo Labs | Pune, India  Aug 2022 - June 2023
+- Developed internal reporting tools in Flask consumed by the operations team
+- Wrote ETL jobs in Python that consolidated vendor data into a central warehouse
+
+Projects
+Support Ticket Classifier | Personal project
+Technologies: Python, scikit-learn, pandas, Flask, FastAPI, LLMs, FAISS, LangChain
+- Built an LLM-based intent classifier that routes incoming support tickets into 12 categories with 87% accuracy, replacing a TF-IDF baseline
+- Built a RAG pipeline that retrieves similar historical tickets from a FAISS vector database as few-shot context before classification
+- Iterated prompt engineering against a held-out set of 40,000 tickets and served the model through a FastAPI inference endpoint
+- Wrote an evaluation script comparing precision and recall across categories
+
+Kirana Commerce | Personal project
+Technologies: React, Django, PostgreSQL, Docker
+- Built a full-stack storefront for neighbourhood grocery shops with cart, checkout and order tracking
+- Deployed on a single VM with Docker Compose and nginx
+
+Sensor Anomaly Dashboard | College capstone
+Technologies: Python, pandas, Plotly, Flask
+- Analysed 2 million IoT sensor readings and flagged anomalies with a rolling z-score
+- Built a Plotly dashboard the lab used to review flagged intervals
+
+Education
+B.E. Computer Science | Pune Institute of Technology | 2018 - 2022
+CGPA 8.4/10

@@ -1,0 +1,49 @@
+ARJUN MEHTA
+Bengaluru, India | +91 98765 43210 | arjun.mehta@example.com
+linkedin.com/in/arjunmehta | github.com/arjunmehta
+
+PROFESSIONAL SUMMARY
+Software engineer with 3 years of experience building data-driven backend services
+and machine learning prototypes. Comfortable owning a feature from data ingestion
+through deployment.
+
+TECHNICAL SKILLS
+Languages: Python, JavaScript, SQL
+Frameworks: Django, Flask, React, scikit-learn
+Data: PostgreSQL, MongoDB, pandas, NumPy
+Tools: Git, Docker, Jenkins, Linux
+
+PROFESSIONAL EXPERIENCE
+Software Engineer | Cobalt Systems | Bengaluru, India  (July 2023 - Present)
+- Built and maintained Django REST services handling 40k daily requests for the
+  logistics dashboard
+- Designed PostgreSQL schemas and optimised slow queries, cutting p95 latency by 35%
+- Containerised three internal services with Docker and set up Jenkins build pipelines
+- Mentored two interns through their first production deployments
+
+Junior Developer | Vireo Labs | Pune, India  (Aug 2022 - June 2023)
+- Developed internal reporting tools in Flask consumed by the operations team
+- Wrote ETL jobs in Python that consolidated vendor data into a central warehouse
+
+PROJECTS
+Support Ticket Classifier | Personal project
+Technologies: Python, scikit-learn, pandas, Flask
+- Built a TF-IDF and logistic regression model that routes incoming support tickets
+  into 12 categories with 87% accuracy
+- Trained on 40,000 historical tickets and exposed the model through a Flask endpoint
+- Wrote an evaluation script comparing precision and recall across categories
+
+Kirana Commerce | Personal project
+Technologies: React, Django, PostgreSQL, Docker
+- Built a full-stack storefront for neighbourhood grocery shops with cart, checkout
+  and order tracking
+- Deployed on a single VM with Docker Compose and nginx
+
+Sensor Anomaly Dashboard | College capstone
+Technologies: Python, pandas, Plotly, Flask
+- Analysed 2 million IoT sensor readings and flagged anomalies with a rolling z-score
+- Built a Plotly dashboard the lab used to review flagged intervals
+
+EDUCATION
+B.E. Computer Science | Pune Institute of Technology  (2018 - 2022)
+CGPA 8.4/10
