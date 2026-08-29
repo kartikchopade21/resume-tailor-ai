@@ -106,6 +106,30 @@ The ATS score is computed locally and never calls a model, so it costs nothing
 and is byte-identical on every run regardless of which provider you pick. The
 model is used only for parsing and rewriting.
 
+## Hosting it free
+
+[Streamlit Community Cloud](https://share.streamlit.io) runs this at no cost from
+this repo. Sign in with GitHub, **New app** → pick the repo, branch `main`, main
+file `app.py`, deploy.
+
+Keys go in **Settings → Secrets** as TOML — there is no `.env` on a hosted
+instance, and `app.py` copies secrets into the environment before the config
+module reads it:
+
+```toml
+TAILOR_PROVIDER = "gemini"
+GEMINI_API_KEY = "your-key"
+```
+
+**Think before you put your own key in a public app.** Anyone who finds the URL
+spends your quota, and the Gemini free tier is 20 requests/day. Deploy with *no*
+key and the sidebar asks each visitor for their own — held in memory for that
+session only, never written to disk or logged. That is the right setup for a
+public link; add a key to Secrets only if the app is for you alone.
+
+LibreOffice is not available on Community Cloud, so PDF export there goes through
+reportlab. Nothing to configure — `requirements.txt` already covers it.
+
 ## The three scopes
 
 | Dropdown option | What changes | Typical ceiling |

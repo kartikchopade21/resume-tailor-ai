@@ -7,8 +7,19 @@ import uuid
 
 import streamlit as st
 
-from tailor import llm, providers
-from tailor import (
+# Hosted deployments have no .env — Streamlit Community Cloud supplies keys via
+# the app's Secrets panel instead. Copy them into the environment before tailor
+# is imported, since config.py reads os.environ once at import time.
+# setdefault, so a real .env still wins when running locally.
+try:
+    for _key, _value in st.secrets.items():
+        if isinstance(_value, str):
+            os.environ.setdefault(_key, _value)
+except Exception:      # no secrets configured at all — normal for local runs
+    pass
+
+from tailor import llm, providers  # noqa: E402
+from tailor import (  # noqa: E402
     MODE_FULL_RESUME,
     MODE_HELP,
     MODE_LABELS,
@@ -22,7 +33,7 @@ from tailor import (
     write_docx,
     write_pdf,
 )
-from tailor.schema import Bullet
+from tailor.schema import Bullet  # noqa: E402
 
 st.set_page_config(page_title="ATS Resume Tailor", page_icon="🎯", layout="wide")
 
